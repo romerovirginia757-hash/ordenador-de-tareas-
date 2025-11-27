@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Registro de Actividades</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<button id="btnToggleTheme" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+
+<header>
+    <h1>Registro de Actividades</h1>
+    <p>Organiza y lleva control de tus actividades</p>
+</header>
+
+<div class="container">
+
+    <section class="form-card">
+        <h2>Registrar Actividad</h2>
+
+        <form id="activityForm">
+
+            <label for="task">Actividad</label>
+            <input type="text" id="task" required>
+
+            <label for="girlAssigned">Asignada a</label>
+            <select id="girlAssigned" required>
+                <option value="">--Seleccionar prioridad--</option>
+                <option value="Baja">Baja</option>
+                <option value="Media">Media</option>
+                <option value="Alta">Alta</option>
+            </select>
+
+            <label for="date">Fecha</label>
+            <input type="date" id="date" required>
+
+            <label for="comments">Comentarios</label>
+            <textarea id="comments"></textarea>
+
+            <button type="submit">Agregar Actividad</button>
+        </form>
+    </section>
+
+    <section>
+        <input 
+            type="text" 
+            id="searchBar" 
+            placeholder="Buscar actividad o persona…"
+            class="search-bar"
+        >
+    </section>
+
+    <section id="filters" class="filters">
+        <button class="btn-filter active" data-filter="all">Todas</button>
+        <button class="btn-filter" data-filter="completed">Completadas</button>
+        <button class="btn-filter" data-filter="pending">Pendientes</button>
+    </section>
+
+    <section id="stats" class="stats">
+        <div class="stat-card">Total: <span id="totalCount">0</span></div>
+        <div class="stat-card">Completadas: <span id="completedCount">0</span></div>
+        <div class="stat-card">Pendientes: <span id="pendingCount">0</span></div>
+    </section>
+
+    <section class="table-section">
+        <table>
+            <thead>
+                <tr>
+                    <th>Actividad</th>
+                    <th>Asignada a</th>
+                    <th>Fecha</th>
+                    <th>Comentarios</th>
+                    <th>Hecho</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="activityTable"></tbody>
+        </table>
+    </section>
+
+</div>
+
+<div id="editModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+        <h3>Editar Actividad</h3>
+        <label for="editTask">Actividad</label>
+        <input type="text" id="editTask">
+        <label for="editGirlAssigned">Asignada a</label>
+        <select id="editGirlAssigned">
+            <option value="">--Seleccionar prioridad--</option>
+            <option value="Baja">Baja</option>
+            <option value="Media">Media</option>
+            <option value="Alta">Alta</option>
+        </select>
+        <label for="editDate">Fecha</label>
+        <input type="date" id="editDate">
+        <label for="editComments">Comentarios</label>
+        <textarea id="editComments"></textarea>
+
+        <div class="modal-buttons">
+            <button id="saveEdit" class="btn-save">Guardar</button>
+            <button id="closeModal" class="btn-cancel">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
+
